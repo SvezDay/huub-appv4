@@ -1,0 +1,32 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>popover-profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+</ion-content> -->
+
+<ion-list>
+    <ion-item button color="danger" (click)="closePopover()">
+        <ion-icon name="close" slot="start"></ion-icon> Close Popover
+    </ion-item>
+    <ion-item button>
+        <ion-icon slot="start" name="mail" style="color:red;"></ion-icon>Mail
+    </ion-item>
+    <ion-item button routerLink="/members/board">
+        <ion-icon slot="start" name="walk" style="color:green;"></ion-icon>Board
+    </ion-item>
+    <ion-item button routerLink="/members/project">
+        <ion-icon slot="start" name="git-network" style="color:orange;"></ion-icon>Project
+    </ion-item>
+    <ion-item button (click)="closePopover('box')">
+        <ion-icon slot="start" name="cube" style="color:blue;"></ion-icon>Box
+    </ion-item>
+    <ion-item button routerLink="/members/game">
+        <ion-icon slot="start" name="logo-game-controller-a" style="color:purple;"></ion-icon>Game
+    </ion-item>
+    <ion-item button routerLink="/members/user-profile">
+        <ion-icon slot="start" name="contact" style="color:grey;"></ion-icon>Profile
+    </ion-item>
+</ion-list>

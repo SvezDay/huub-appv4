@@ -1,0 +1,54 @@
+<ion-split-pane contentId="custom">
+    <ion-menu side="start" menuId="first" contentId="custom" *ngIf="true">
+        <ion-header>
+            <ion-toolbar color="primary">
+                <div style="padding-left:1em; display:flex;">
+                    <ion-icon style="font-size:25px" name="radio-button-on"></ion-icon>
+                    <ion-title style="padding-left:0.2em;">Ublim</ion-title>
+                </div>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item>Menu Item</ion-item>
+                <ion-item-divider>
+                    <ion-label>
+                        Section A
+                    </ion-label>
+                </ion-item-divider>
+                <ion-item (click)="logout()">Logout</ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <!-- <ion-router-outlet name="auxToolbar"></ion-router-outlet> -->
+    <ion-router-outlet id="custom"></ion-router-outlet>
+
+</ion-split-pane>
+
+<!-- <ion-header>
+<ion-toolbar>
+<ion-buttons slot="start">
+<ion-menu-toggle id="first">
+<ion-button>
+<ion-icon style="font-size:25px" name="menu"></ion-icon>
+</ion-button>
+</ion-menu-toggle>
+</ion-buttons>
+<div style="padding-left:1em; display:flex;">
+<ion-icon style="font-size:25px" name="radio-button-on"></ion-icon>
+<ion-title style="padding-left:0.2em;">Ublim</ion-title>
+</div>
+<ion-buttons slot="end">
+<ion-button href="/login" >
+Sign in
+</ion-button>
+</ion-buttons>
+</ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-content>
+</ion-content> -->

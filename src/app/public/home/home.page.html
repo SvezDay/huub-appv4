@@ -1,0 +1,274 @@
+<!-- <ion-menu side="start" menuId="custom" class="my-custom-menu" content-id="content" auto-hide="false">
+    <ion-header>
+        <ion-toolbar color="tertiary">
+            <ion-title>Params</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-header>
+        <ion-toolbar color="tertiary">
+            <ion-title>Params</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content padding>
+        <ion-list>
+            <ion-item>Profile</ion-item>
+            <ion-item>Params</ion-item>
+            <ion-item>Politique de confidentialite</ion-item>
+            <ion-item>Avis</ion-item>
+            <ion-item (click)="logout()" *ngIf="auth.isLogged">Logout</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu> -->
+
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-toggle>
+                <ion-button>
+                    <ion-icon slot="icon-only" name="menu"></ion-icon>
+                </ion-button>
+            </ion-menu-toggle>
+        </ion-buttons>
+        <ion-title>Ublim</ion-title>
+        <ion-buttons slot="end">
+            <ion-button href="/login" *ngIf="!auth.isLogged">
+                Sign in
+            </ion-button>
+            <ion-button (click)="popoverProfile($event)" *ngIf="auth.isLogged">
+                <ion-icon slot="icon-only" name="person"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header> -->
+
+<!--
+<ion-header>
+    <ion-toolbar>
+        <div style="padding-left:1em; display:flex;">
+            <ion-icon style="font-size:25px" name="radio-button-on"></ion-icon>
+            <ion-title style="padding-left:0.2em;">Ublim</ion-title>
+        </div>
+        <ion-buttons slot="end">
+            <ion-button routerLink="/public/login" >
+                Sign in
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content id="content">
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <ion-button expand="block" type="button" name="button" (click)="test()">
+                    <i class="fa fa-google"></i> Test
+                </ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12" size-sm="6" size-lg="3">
+                <ion-card class="welcome-card">
+                    <ion-img src="/assets/demo222.png"></ion-img>
+                    <ion-card-header>
+                        <ion-card-subtitle>Check the Demo</ion-card-subtitle>
+                        <ion-card-title>Ublim's demo</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-lg="3">
+                <ion-card class="welcome-card">
+                    <ion-img src="/assets/shapes.svg"></ion-img>
+                    <ion-card-header>
+                        <ion-card-subtitle>Get Started</ion-card-subtitle>
+                        <ion-card-title>Welcome to Ionic</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-lg="3">
+                <ion-card class="welcome-card">
+                    <ion-img src="/assets/shapes.svg"></ion-img>
+                    <ion-card-header>
+                        <ion-card-subtitle>Get Started</ion-card-subtitle>
+                        <ion-card-title>Welcome to Ionic</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="12" size-sm="6" size-lg="3">
+                <ion-card class="welcome-card">
+                    <ion-img src="/assets/shapes.svg"></ion-img>
+                    <ion-card-header>
+                        <ion-card-subtitle>Get Started</ion-card-subtitle>
+                        <ion-card-title>Welcome to Ionic</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-grid>
+            <ion-row>
+                <ion-col  size="12" size-md="8" offset-md="2">
+                    <ion-row>
+                        <ion-col>
+                            <ion-buttons style="display:grid;">
+                                <ion-button>
+                                    <div>
+                                        <ion-icon name="walk" style="font-size:1.5em;"></ion-icon>
+                                        <br>
+                                        <ion-label style="font-size:0.8em;">Board</ion-label>
+                                    </div>
+                                </ion-button>
+                            </ion-buttons>
+                        </ion-col>
+                        <ion-col>
+                            <ion-buttons style="display:grid;">
+                                <ion-button>
+                                    <div>
+                                        <ion-icon name="cube" style="font-size:1.5em;"></ion-icon>
+                                        <br>
+                                        <ion-label style="font-size:0.8em;">Box</ion-label>
+                                    </div>
+                                </ion-button>
+                            </ion-buttons>
+                        </ion-col>
+                        <ion-col>
+                            <ion-buttons style="display:grid;">
+                                <ion-button>
+                                    <div>
+                                        <ion-icon name="git-network" style="font-size:1.5em;"></ion-icon>
+                                        <br>
+                                        <ion-label style="font-size:0.8em;">Project</ion-label>
+                                    </div>
+                                </ion-button>
+                            </ion-buttons>
+                        </ion-col>
+                        <ion-col>
+                            <ion-buttons style="display:grid;">
+                                <ion-button>
+                                    <div>
+                                        <ion-icon name="logo-game-controller-a" style="font-size:1.5em;"></ion-icon>
+                                        <br>
+                                        <ion-label style="font-size:0.8em;">Game</ion-label>
+                                    </div>
+                                </ion-button>
+                            </ion-buttons>
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>
+<div slot="end">
+    <ion-title style="padding-left:0.2em;">Connection</ion-title>
+    <ion-icon style="font-size:25px" name="radio-button-on"></ion-icon>
+</div>
+<div style="padding-left:1em; display:flex;">
+    <ion-icon style="font-size:25px" name="radio-button-on"></ion-icon>
+    <ion-title style="padding-left:0.2em;">Ublim</ion-title>
+</div>
+-->
+<ion-header class="parallax-obj parallax-translate-obj header-transparent" style="margin-bottom: -56px">
+    <ion-toolbar>
+        <ion-buttons  slot="end" > <!--class="hidden-xs"-->
+            <ion-button class="button-transparent" routerLink="/login">
+                <ion-title>Connection</ion-title>
+                <ion-icon name="contact"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen common-parallax [scrollEvents]="true">
+    <div class="parallax">
+        <!--
+        <div class="section">
+            <ion-toolbar>
+                <div style="padding-left:1em; display:flex;">
+                    <ion-icon style="font-size:25px" name="radio-button-on"></ion-icon>
+                    <ion-title style="padding-left:0.2em;">Ublim</ion-title>
+                </div>
+            </ion-toolbar>
+        </div>
+        -->
+        <div class="section">
+            <div text-center class="text-section parallax-obj parallax-down-obj">
+                <h2 class="txt-light uppercase fw-900 fs-30 spacing1">UBLIM</h2>
+                <h4 no-margin class="txt-light fw-500 fs-20">The first line of Lorem Ipsum</h4>
+                <p no-margin class="txt-light fs-14">It has survived not only five centuries</p>
+            </div>
+            <div class="bg-section-img">
+                <img class="parallax-obj parallax-up-obj my-bg-section-img" src="assets/img/lemon1.png">
+            </div>
+        </div>
+
+        <div class="section">
+            <div text-center class="text-section parallax-obj parallax-down-obj">
+                <h2 class="txt-light uppercase fw-900 fs-30 spacing1">Lorem Ipsum</h2>
+                <h4 no-margin class="txt-light fw-500 fs-20">The first line of Lorem Ipsum</h4>
+                <p no-margin class="txt-light fs-14">It has survived not only five centuries</p>
+            </div>
+            <div class="bg-section-img">
+                <img class="parallax-obj parallax-up-obj my-bg-section-img" src="assets/img/lemon2.png">
+            </div>
+        </div>
+
+        <div class="section">
+            <div text-center class="text-section parallax-obj parallax-down-obj">
+                <h2 class="txt-light uppercase fw-900 fs-30 spacing1">Lorem Ipsum</h2>
+                <h4 no-margin class="txt-light fw-500 fs-20">The first line of Lorem Ipsum</h4>
+                <p no-margin class="txt-light fs-14">It has survived not only five centuries</p>
+            </div>
+            <div class="bg-section-img">
+                <img class="parallax-obj parallax-up-obj my-bg-section-img" src="assets/img/lemon3.png">
+            </div>
+        </div>
+
+        <div class="section">
+            <div text-center class="text-section parallax-obj parallax-down-obj">
+                <h2 class="txt-light uppercase fw-900 fs-30 spacing1">Lorem Ipsum</h2>
+                <h4 no-margin class="txt-light fw-500 fs-20">The first line of Lorem Ipsum</h4>
+                <p no-margin class="txt-light fs-14">It has survived not only five centuries</p>
+            </div>
+            <div class="bg-section-img">
+                <img class="parallax-obj parallax-up-obj my-bg-section-img" src="assets/img/lemon4.png">
+            </div>
+        </div>
+
+        <div class="section">
+            <div text-center class="text-section parallax-obj parallax-down-obj">
+                <h2 class="txt-light uppercase fw-900 fs-30 spacing1">Lorem Ipsum</h2>
+                <h4 no-margin class="txt-light fw-500 fs-20">The first line of Lorem Ipsum</h4>
+                <p no-margin class="txt-light fs-14">It has survived not only five centuries</p>
+            </div>
+            <div class="bg-section-img">
+                <img class="parallax-obj parallax-up-obj my-bg-section-img" src="assets/img/lemon5.png">
+            </div>
+        </div>
+        <div class="section-footer">
+            <div text-center class="text-section parallax-obj parallax-down-obj">
+                <h2 class="txt-light uppercase fw-900 fs-30 spacing1">Footer</h2>
+                <h4 no-margin class="txt-light fw-500 fs-20">The first line of Lorem Ipsum</h4>
+                <p no-margin class="txt-light fs-14">It has survived not only five centuries</p>
+            </div>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,129 @@
+<!--
+<ion-content id="content">
+    <ion-grid fixed padding>
+        <ion-row>
+            <ion-col size="12" size-sm="8" offset-sm="2" size-lg="6" offset-lg="3">
+                <ion-button routerLink="/public/home">Home</ion-button>
+                <ion-card class="welcome-card">
+                    <ion-card-content>
+                        <ion-grid padding>
+                            <ion-row>
+                                <ion-col>
+                                    <form [formGroup]="loginForm">
+                                        <ion-item>
+                                            <ion-input formControlName="email" type="email" placeholder="Email" [class.invalid]="!loginForm.controls['email'].valid && loginForm.controls['email'].touched"></ion-input>
+                                        </ion-item>
+                                        <ion-item class="error-message" *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">
+                                            <ion-label>Please enter a valid email address.</ion-label>
+                                        </ion-item>
+
+                                        <ion-item>
+                                            <ion-input formControlName="password" type="password" placeholder="Password" [class.invalid]="!loginForm.controls['password'].valid&& loginForm.controls['password'].touched"></ion-input>
+                                        </ion-item>
+                                        <ion-item class="error-message" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+                                            <ion-label>Your password needs more than 6 characters.</ion-label>
+                                        </ion-item>
+
+                                        <ion-button (click)="loginUser(loginForm)" expand="block" [disabled]="!loginForm.valid">
+                                            Sign in
+                                        </ion-button>
+                                    </form>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col>
+                                    <div style="width: 100%; text-align: center;">
+                                        <ion-fab>
+                                            <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+                                        </ion-fab>
+                                    </div>
+                                </ion-col>
+                                <ion-col>
+                                    <div style="width: 100%; text-align: center;">
+                                        <ion-fab>
+                                            <ion-fab-button><ion-icon name="logo-google"></ion-icon></ion-fab-button>
+                                        </ion-fab>
+                                    </div>
+                                </ion-col>
+                                <ion-col>
+                                    <div style="width: 100%; text-align: center;">
+                                        <ion-fab>
+                                            <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+                                        </ion-fab>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col>
+                                    <ion-button expand="block" fill="clear" routerLink="/sign-up">Create a new account</ion-button>
+                                    <ion-button expand="block" fill="clear" routerLink="/forgot-password">I forgot my password 🙁</ion-button>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+</ion-content>
+-->
+
+<ion-content fullscreen common-parallax [scrollEvents]="true">
+    <div class="wrap-login-v2 offset-top-obj">
+        <div class="decor">
+            <div class="brand pdb-50">
+                <!--<img src="assets/img/lemon_block_w.png">-->
+                <ion-icon slot="icon-only" name="radio-button-on" style="color:white; font-size:100px;"></ion-icon>
+                <ion-text class="fs-20 text-primary spacing-4 fw-500" style="color:white;" >UBLIM</ion-text>
+            </div>
+            <div class="more-action pd-20">
+                <div text-left class="social-login">
+                    <p class="txt-light mgb-5 fs-12 pdl-15">Join Ublim with</p>
+                    <ion-button fill="clear" class="txt-light mgr-5">
+                        <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+                    </ion-button>
+                    <ion-button fill="clear" class="txt-light mgr-5">
+                        <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
+                    </ion-button>
+                    <ion-button fill="clear" class="txt-light mgr-5">
+                        <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+                    </ion-button>
+                </div>
+                <div text-right class="">
+                    <ion-button fill="clear" class="txt-light mgl-5 mgr-5 uppercase fw-500" routerLink="/sign-up">
+                        Signup
+                    </ion-button>
+                </div>
+            </div>
+            <div class="bg-img">
+                <img src="assets/img/lemon18.jpg">
+            </div>
+        </div>
+        <div class="wrap-interval pdl-50 pdr-50">
+            <div class="main-form ubi-cred-form">
+                <br>
+                <form class="" novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                    <ion-item lines="none" class="bdra-30 shadow-2 bg-light">
+                        <ion-input type="email" placeholder="Your email address"></ion-input>
+                    </ion-item>
+                    <ion-item lines="none" class="bdra-30 mgt-10 shadow-2 bg-light">
+                        <ion-input type="password" placeholder="Your password"></ion-input>
+                    </ion-item>
+                    <hr/>
+                    <ion-button expand="block" shape="round" color="primary" class="uppercase spacing1 fw-600" type="submit">
+                        Login
+                    </ion-button>
+                    <div text-right>
+                        <ion-button mode="ios" size="small" fill="clear" class="txt3" type="button" routerLink="/forgot-password">
+                            Forgot Password?
+                        </ion-button>
+                    </div>
+                </form>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</ion-content>

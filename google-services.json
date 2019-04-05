@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "578697682462",
+    "firebase_url": "https://huub-appv4.firebaseio.com",
+    "project_id": "huub-appv4",
+    "storage_bucket": "huub-appv4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578697682462:android:7c7a11cc6313ce67",
+        "android_client_info": {
+          "package_name": "huub-appv4.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578697682462-eg37ugn8n5jrvb89edn0or5s381vgv4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7VS2D6stWP63yd-A2JjUBJLHzRCuOHDI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,74 @@
+
+
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-toggle id="first" class="hidden-lg hidden-xl">
+                <ion-button>
+                    <ion-icon style="font-size:25px" name="menu"></ion-icon>
+                </ion-button>
+            </ion-menu-toggle>
+        </ion-buttons>
+        <ion-searchbar placeholder="Filter Schedules"></ion-searchbar>
+        <ion-buttons slot="end"  class="hidden-xs hidden-sm">
+            <ion-button>
+                <ion-icon slot="icon-only" name="mail" style="color:red;"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="/members/board">
+                <ion-icon slot="icon-only" name="walk" style="color:green;"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="/members/project">
+                <ion-icon slot="icon-only" name="git-network" style="color:orange;"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="/members/box">
+                <ion-icon slot="icon-only" name="cube" style="color:blue;"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="/members/game">
+                <ion-icon slot="icon-only" name="logo-game-controller-a" style="color:purple;"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="/members/user-profile">
+                <ion-icon slot="icon-only" name="contact" style="color:grey;"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end"  class="hidden-md hidden-lg hidden-xl">
+            <ion-button (click)="popoverProfile($event)">
+                <ion-icon slot="icon-only" name="apps"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+UserProfilePage
+</ion-content>
+
+<!-- <div *ngIf="auth.user | async; then authenticated else guest"> -->
+    <!-- template will replace this div -->
+
+    <!-- </div> -->
+
+
+    <!-- User not logged -->
+    <!-- <ng-template #guest>
+        <h3>Howdy Guest</h3>
+        <p>Login to get started...</p>
+        <button type="button" name="button" (click)="auth.googleLogin()">
+            <i class="fa fa-google"></i> Connect Google
+        </button>
+    </ng-template> -->
+
+
+    <!-- User logged -->
+    <!-- <ng-template #authenticated>
+        <div *ngIf="auth.user | async as user">
+            <h3>Howdy, {{user.displayName }}</h3>
+            <img src="user.photoURL">
+            <p>PID:{{user.uid}}</p>
+        </div>
+        <p>Login to get started...</p>
+        <button type="button" name="button" (click)="auth.googleLogin()">
+            <i class="fa fa-google"></i> Connect Google
+        </button>
+    </ng-template>
+
+    <ion-button (click)="doSomething()">display_console</ion-button> -->

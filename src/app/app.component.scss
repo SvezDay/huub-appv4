@@ -1,0 +1,53 @@
+// :host {
+//     ion-content {
+//         --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary));
+//     }
+//
+//     ion-list {
+//         &.list-md {
+//             padding: 0;
+//         }
+//     }
+// }
+// .example-container {
+//   width: 500px;
+//   height: 300px;
+//   border: 1px solid rgba(0, 0, 0, 0.5);
+// }
+//
+// .example-sidenav-content {
+//   display: flex;
+//   height: 100%;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+.my-custom-menu {
+  --width: 500px;
+}
+
+$screen-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$breakpoints-keys: map-keys($screen-breakpoints);
+$breakpoints-values: map-values($screen-breakpoints);
+@for $i from 1 to length($breakpoints-keys)+1 {
+  @if $i < length($breakpoints-keys) {
+    .hidden-#{nth($breakpoints-keys, $i)} {
+      @media (min-width: nth($breakpoints-values, $i)) and (max-width: #{nth($breakpoints-values, $i+1)}) {
+        display: none;
+      }
+    }
+  } @else {
+    .hidden-#{nth($breakpoints-keys, $i)} {
+      @media (min-width: nth($breakpoints-values, $i)) {
+        display: none;
+      }
+    }
+  }
+}
