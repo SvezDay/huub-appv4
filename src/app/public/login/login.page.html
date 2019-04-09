@@ -105,10 +105,12 @@
                 <br>
                 <form class="" novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
                     <ion-item lines="none" class="bdra-30 shadow-2 bg-light">
-                        <ion-input type="email" placeholder="Your email address"></ion-input>
+                        <ion-input type="email" placeholder="Your email address"formControlName="email"
+                                   [class.invalid]="!loginForm.controls['email'].valid && loginForm.controls['email'].touched"></ion-input>
                     </ion-item>
                     <ion-item lines="none" class="bdra-30 mgt-10 shadow-2 bg-light">
-                        <ion-input type="password" placeholder="Your password"></ion-input>
+                        <ion-input type="password" placeholder="Your password" formControlName="password"
+                                   [class.invalid]="!loginForm.controls['password'].valid && loginForm.controls['password'].touched"></ion-input>
                     </ion-item>
                     <hr/>
                     <ion-button expand="block" shape="round" color="primary" class="uppercase spacing1 fw-600" type="submit">
