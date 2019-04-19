@@ -12,7 +12,7 @@ import { AuthService } from '../../_core/auth.service';
 export class ForgotPasswordPage implements OnInit {
     public resetPasswordForm: FormGroup;
     constructor(
-        private auth: AuthService,
+        private authService: AuthService,
         private alertCtrl: AlertController,
         private formBuilder: FormBuilder,
         private router: Router
@@ -30,7 +30,7 @@ export class ForgotPasswordPage implements OnInit {
             );
         } else {
             const email: string = resetPasswordForm.value.email;
-            this.auth.forgotPassword(email).then(
+            AuthService.forgotPassword(email).then(
                 async () => {
                     const alert = await this.alertCtrl.create({
                         message: 'Check your email for a password reset link',

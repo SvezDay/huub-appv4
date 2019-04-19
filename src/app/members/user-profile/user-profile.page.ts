@@ -17,13 +17,13 @@ export class UserProfilePage implements OnInit {
   }
 
   doSomething() {
-    console.log(this.auth.user)
+    // console.log(this.auth.user);
   }
   async popoverProfile(ev: Event){
-      console.log("check popoverProfile() ev: ", ev)
+      console.log('check popoverProfile() ev: ', ev)
       const popover = await this.popoverCtrl.create({
           component: PopoverProfilePage,
-          event:ev
+          event: ev
       });
       popover.present();
   }

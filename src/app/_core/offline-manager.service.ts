@@ -2,21 +2,21 @@
 refs:
 Simon Grimm - How to Build Ionic 4 app with offline mode - https://www.youtube.com/watch?v=CFoG0xkgVlE
 */
-import { Injectable } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
-import { HttpClient } from '@angular/common/http';
-import {forkJoin, Observable, from, of } from 'rxjs';
-import {switchMap, finalize } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {ToastController} from '@ionic/angular';
+import {Storage} from '@ionic/storage';
+import {HttpClient} from '@angular/common/http';
+import {forkJoin, Observable, from, of} from 'rxjs';
+import {switchMap, finalize} from 'rxjs/operators';
 
 const STORAGE_REQ_KEY = 'storedreq';
 
 interface StoredRequest {
-    url: string,
-    type: string,
-    data: any,
-    time: number,
-    id: string
+    url: string;
+    type: string;
+    data: any;
+    time: number;
+    id: string;
 }
 
 @Injectable({
@@ -24,54 +24,57 @@ interface StoredRequest {
 })
 export class OfflineManagerService {
 
-    constructor(private storage: Storage, private toastController: ToastController, private http: HttpClient) { }
+    constructor(private storage: Storage, private toastController: ToastController, private http: HttpClient) {
+    }
 
     private sendRequests(operations: StoredRequest[]) {
-        let obs = [];
+        const obs = [];
 
-        for(let op of operations){
-            console.log("Make on request: ", op);
-            let oneObs = this.http.request(op.type, op.url, op.data);
+        for (let op of operations) {
+            console.log('Make on request: ', op);
+            const oneObs = this.http.request(op.type, op.url, op.data);
             obs.push(oneObs);
-        };
+        }
+        ;
+
         // Send out all local events and return once they are finished.s
         return forkJoin(obs);
 
-    };
+    }
 
-    public checkForEvents(): Observable<any>{
+    public checkForEvents(): Observable<any> {
         return from(this.storage.get(STORAGE_REQ_KEY)).pipe(
-            switchMap(storedOperations=>{
-                let storedObj = JSON.parse(storedOperations);
-                if(storedObj && storedObj.length > 0){
+            switchMap(storedOperations => {
+                const storedObj = JSON.parse(storedOperations);
+                if (storedObj && storedObj.length > 0) {
                     return this.sendRequests(storedObj).pipe(
-                        finalize(()=>{
-                            let toast = this.toastController.create({
+                        finalize(async () => {
+                            const toast = await this.toastController.create({
                                 message: `Local data succesfully synced to API`,
                                 duration: 3000,
                                 position: 'bottom'
                             });
-                            toast.then(toast => toast.present() );
+                            toast.present();
                             this.storage.remove(STORAGE_REQ_KEY);
                         })
                     );
-                }else{
+                } else {
                     console.log('No local event');
                     return of(false);
                 }
             })
         );
-    };
+    }
 
-    public storeRequest(url, type, data): any{
-        let toast = this.toastController.create({
-            message: "Your data are stored localy because you seem to be offline.",
+    public async storeRequest(url, type, data): Promise<any> {
+        const toast = await this.toastController.create({
+            message: 'Your data are stored localy because you seem to be offline.',
             duration: 3000,
             position: 'bottom'
         });
-        toast.then(toast => toast.present() );
+        toast.present();
 
-        let action: StoredRequest = {
+        const action: StoredRequest = {
             url: url,
             type: type,
             data: data,
@@ -79,18 +82,18 @@ export class OfflineManagerService {
             id: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)
         };
 
-        return this.storage.get(STORAGE_REQ_KEY).then(storedOperations=>{
+        return this.storage.get(STORAGE_REQ_KEY).then(storedOperations => {
             let storedObj = JSON.parse(storedOperations);
 
-            if(storedObj){
+            if (storedObj) {
                 storedObj.push(action);
-            }else{
+            } else {
                 storedObj = [action];
             }
 
-            console.log('Local request stored: ',action);
+            console.log('Local request stored: ', action);
             return this.storage.set(STORAGE_REQ_KEY, JSON.stringify(storedObj));
-        })
+        });
     }
 
 }

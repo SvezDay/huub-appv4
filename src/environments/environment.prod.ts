@@ -1,5 +1,5 @@
 import {firebaseConfig} from '../app/firebase-config';
 export const environment = {
   production: true
-  , apiUrl:firebaseConfig.databaseURL
+  , restUrl: 'https://huub-restv3.herokuapp.com/rest'
 };

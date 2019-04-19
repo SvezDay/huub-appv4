@@ -6,7 +6,10 @@
 //     --ion-grid-width-lg:              1160px;
 //     --ion-grid-width-xl:              1340px;
 // }
-
+ion-toolbar {
+  --padding-end: 5%;
+  --padding-start: 5%;
+}
 .button-transparent{
   --background: transparent;
   --ion-color-base: transparent !important;

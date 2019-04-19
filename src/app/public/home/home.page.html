@@ -185,12 +185,19 @@
     <ion-title style="padding-left:0.2em;">Ublim</ion-title>
 </div>
 -->
+
 <ion-header class="parallax-obj parallax-translate-obj header-transparent" style="margin-bottom: -56px">
     <ion-toolbar>
-        <ion-buttons  slot="end" > <!--class="hidden-xs"-->
-            <ion-button class="button-transparent" routerLink="/login">
-                <ion-title>Connection</ion-title>
-                <ion-icon name="contact"></ion-icon>
+        <ion-buttons slot="end"> <!--class="hidden-xs"-->
+            <!--            <ion-button class="button-transparent" routerLink="/login">
+                            <ion-title>Connection</ion-title>
+                            <ion-icon name="contact"></ion-icon>
+                        </ion-button>-->
+            <ion-button fill="outline" routerLink="/login">
+                <ion-title>Login</ion-title>
+            </ion-button>
+            <ion-button fill="solid" routerLink="/sign-up">
+                <ion-title>Sign-up</ion-title>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>

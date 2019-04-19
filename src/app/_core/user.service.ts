@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient, HttpHeaders, HttpParams, HttpErrorResponse} from '@angular/common/http';
 
-import * as firebase from 'firebase/app'
+import * as firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
@@ -21,16 +21,17 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
+  private restUrl = 'https://huub-restv3.herokuapp.com';
   private domain: any;
   constructor(private http: HttpClient, private auth: AuthService, private afs: AngularFirestore) { }
 
-  private handleError(error: any){
+  private handleError(error: any) {
     console.log('error', error);
   }
 
   public query(verb, route, ...param) {
-    if(verb == 'get' || verb == 'delete'){
-      return this.http[verb](`${environment.apiUrl}/api${route}`, {headers: this.jwt(...param)})
+    if (verb === 'get' || verb === 'delete') {
+      return this.http[verb](`${this.restUrl}/rest${route}`, {headers: this.jwt(...param)})
       .pipe(
         tap( response => {
           // console.log("api service response", response)
@@ -40,8 +41,8 @@ export class UserService {
         catchError((e: any) => throwError(this.handleError(e)) )
         // catchError(this.handleError(e)) })
       );
-    }else{
-      return this.http[verb](`${environment.apiUrl}/api${route}`, param[0] || {}, {headers: this.jwt()})
+    } else {
+      return this.http[verb](`${this.restUrl}/rest${route}`, param[0] || {}, {headers: this.jwt()})
       .pipe(
         tap( response => {
           // console.log("api service response bis", response)
@@ -51,7 +52,7 @@ export class UserService {
         catchError((e: any) => throwError(this.handleError(e)) )
       );
     }
-  };
+  }
 
   private jwt(...param) {
       // create authorization header with jwt token
@@ -64,6 +65,6 @@ export class UserService {
       //     }
       //   }
       // })
-  };
+  }
 
 }

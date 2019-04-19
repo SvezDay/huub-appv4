@@ -80,13 +80,13 @@
             <div class="more-action pd-20">
                 <div text-left class="social-login">
                     <p class="txt-light mgb-5 fs-12 pdl-15">Join Ublim with</p>
-                    <ion-button fill="clear" class="txt-light mgr-5">
+                    <ion-button fill="clear" class="txt-light mgr-5" (click)="signinWithFacebook()">
                         <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
                     </ion-button>
-                    <ion-button fill="clear" class="txt-light mgr-5">
-                        <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
+                    <ion-button fill="clear" class="txt-light mgr-5"  (click)="signinWithGoogle()">
+                        <ion-icon slot="icon-only" name="logo-google"></ion-icon>
                     </ion-button>
-                    <ion-button fill="clear" class="txt-light mgr-5">
+                    <ion-button fill="clear" class="txt-light mgr-5" (click)="signinWithTwitter()">
                         <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
                     </ion-button>
                 </div>
@@ -103,7 +103,17 @@
         <div class="wrap-interval pdl-50 pdr-50">
             <div class="main-form ubi-cred-form">
                 <br>
-                <form class="" novalidate [formGroup]="loginForm" (ngSubmit)="loginUser()">
+                <form class="" novalidate [formGroup]="loginForm" (ngSubmit)="signinWithCreds()">
+                    <ion-text color="danger"
+                              *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched"
+                    >
+                        <h6 style="font-weight: 400; margin: 1px;">Email must be a valid email address.</h6>
+                    </ion-text>
+                    <ion-text color="danger"
+                              *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched"
+                    >
+                        <h6 style="font-weight: 400; margin: 1px;">Password must be at least 6 characters.</h6>
+                    </ion-text>
                     <ion-item lines="none" class="bdra-30 shadow-2 bg-light">
                         <ion-input type="email" placeholder="Your email address"formControlName="email"
                                    [class.invalid]="!loginForm.controls['email'].valid && loginForm.controls['email'].touched"></ion-input>
@@ -117,7 +127,8 @@
                         Login
                     </ion-button>
                     <div text-right>
-                        <ion-button mode="ios" size="small" fill="clear" class="txt3" type="button" routerLink="/forgot-password">
+                        <ion-button mode="ios" size="small" fill="clear" class="txt3" type="button" routerLink="/forgot-password"
+                                    [disabled]="!loginForm.valid">
                             Forgot Password?
                         </ion-button>
                     </div>
